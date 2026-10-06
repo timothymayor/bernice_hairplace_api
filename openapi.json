@@ -1,6 +1,111 @@
 {
   "components": {
     "schemas": {
+      "CategoriesOut": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CategoryOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "textures": {
+            "description": "Texture filter values that have products",
+            "items": {
+              "type": "string"
+            },
+            "title": "Textures",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items",
+          "textures"
+        ],
+        "title": "CategoriesOut",
+        "type": "object"
+      },
+      "CategoryOut": {
+        "properties": {
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "product_count": {
+            "title": "Product Count",
+            "type": "integer"
+          },
+          "slug": {
+            "enum": [
+              "bundles",
+              "wigs",
+              "frontals",
+              "care"
+            ],
+            "title": "Slug",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "label",
+          "product_count"
+        ],
+        "title": "CategoryOut",
+        "type": "object"
+      },
+      "FullSpecsOut": {
+        "properties": {
+          "bleach_grade": {
+            "title": "Bleach Grade",
+            "type": "string"
+          },
+          "lifespan": {
+            "title": "Lifespan",
+            "type": "string"
+          },
+          "origin": {
+            "title": "Origin",
+            "type": "string"
+          },
+          "texture": {
+            "title": "Texture",
+            "type": "string"
+          },
+          "weft": {
+            "title": "Weft",
+            "type": "string"
+          },
+          "weight": {
+            "title": "Weight",
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin",
+          "texture",
+          "weight",
+          "weft",
+          "lifespan",
+          "bleach_grade"
+        ],
+        "title": "FullSpecsOut",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
       "HealthOut": {
         "properties": {
           "status": {
@@ -13,6 +118,700 @@
           "status"
         ],
         "title": "HealthOut",
+        "type": "object"
+      },
+      "ImagesOut": {
+        "properties": {
+          "cuticle": {
+            "title": "Cuticle",
+            "type": "string"
+          },
+          "luster": {
+            "title": "Luster",
+            "type": "string"
+          },
+          "main": {
+            "title": "Main",
+            "type": "string"
+          },
+          "styled": {
+            "title": "Styled",
+            "type": "string"
+          },
+          "weft": {
+            "title": "Weft",
+            "type": "string"
+          }
+        },
+        "required": [
+          "main",
+          "luster",
+          "weft",
+          "cuticle",
+          "styled"
+        ],
+        "title": "ImagesOut",
+        "type": "object"
+      },
+      "LengthPriceOut": {
+        "properties": {
+          "length": {
+            "title": "Length",
+            "type": "integer"
+          },
+          "price": {
+            "title": "Price",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "length",
+          "price"
+        ],
+        "title": "LengthPriceOut",
+        "type": "object"
+      },
+      "PairingOut": {
+        "properties": {
+          "image": {
+            "title": "Image",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "price": {
+            "description": "Server price of product_id at selected_length",
+            "title": "Price",
+            "type": "integer"
+          },
+          "product_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Add this product to the bag to buy the pairing",
+            "title": "Product Id"
+          },
+          "selected_length": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Selected Length"
+          },
+          "specs": {
+            "title": "Specs",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "specs",
+          "image",
+          "product_id",
+          "selected_length",
+          "price"
+        ],
+        "title": "PairingOut",
+        "type": "object"
+      },
+      "ProductOut": {
+        "properties": {
+          "badge": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Badge"
+          },
+          "category": {
+            "enum": [
+              "bundles",
+              "wigs",
+              "frontals",
+              "care"
+            ],
+            "title": "Category",
+            "type": "string"
+          },
+          "currency": {
+            "const": "NGN",
+            "default": "NGN",
+            "title": "Currency",
+            "type": "string"
+          },
+          "default_length": {
+            "title": "Default Length",
+            "type": "integer"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "donor_shade": {
+            "title": "Donor Shade",
+            "type": "string"
+          },
+          "full_specs": {
+            "$ref": "#/components/schemas/FullSpecsOut"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "image": {
+            "title": "Image",
+            "type": "string"
+          },
+          "images": {
+            "$ref": "#/components/schemas/ImagesOut"
+          },
+          "in_stock_location": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "In Stock Location"
+          },
+          "is_bestseller": {
+            "title": "Is Bestseller",
+            "type": "boolean"
+          },
+          "is_in_stock": {
+            "title": "Is In Stock",
+            "type": "boolean"
+          },
+          "is_new_arrival": {
+            "title": "Is New Arrival",
+            "type": "boolean"
+          },
+          "length_prices": {
+            "items": {
+              "$ref": "#/components/schemas/LengthPriceOut"
+            },
+            "title": "Length Prices",
+            "type": "array"
+          },
+          "lengths": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Lengths",
+            "type": "array"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "origin": {
+            "title": "Origin",
+            "type": "string"
+          },
+          "original_price": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Original Price"
+          },
+          "price": {
+            "description": "Price at default_length, in whole naira",
+            "title": "Price",
+            "type": "integer"
+          },
+          "rating": {
+            "title": "Rating",
+            "type": "number"
+          },
+          "recommended_pairing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PairingOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "review_count": {
+            "title": "Review Count",
+            "type": "integer"
+          },
+          "secondary_badge": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Secondary Badge"
+          },
+          "sku": {
+            "title": "Sku",
+            "type": "string"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": "string"
+          },
+          "subtitle": {
+            "title": "Subtitle",
+            "type": "string"
+          },
+          "texture": {
+            "title": "Texture",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "name",
+          "subtitle",
+          "category",
+          "texture",
+          "sku",
+          "price",
+          "original_price",
+          "rating",
+          "review_count",
+          "image",
+          "badge",
+          "is_bestseller",
+          "is_new_arrival",
+          "is_in_stock",
+          "lengths",
+          "default_length",
+          "description",
+          "origin",
+          "full_specs",
+          "images",
+          "length_prices",
+          "secondary_badge",
+          "in_stock_location",
+          "donor_shade",
+          "recommended_pairing"
+        ],
+        "title": "ProductOut",
+        "type": "object"
+      },
+      "ProductPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ProductSummaryOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          },
+          "total": {
+            "description": "Number of products matching the filters",
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "items",
+          "next_cursor",
+          "total"
+        ],
+        "title": "ProductPage",
+        "type": "object"
+      },
+      "ProductSummaryOut": {
+        "properties": {
+          "badge": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Badge"
+          },
+          "category": {
+            "enum": [
+              "bundles",
+              "wigs",
+              "frontals",
+              "care"
+            ],
+            "title": "Category",
+            "type": "string"
+          },
+          "currency": {
+            "const": "NGN",
+            "default": "NGN",
+            "title": "Currency",
+            "type": "string"
+          },
+          "default_length": {
+            "title": "Default Length",
+            "type": "integer"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "image": {
+            "title": "Image",
+            "type": "string"
+          },
+          "is_bestseller": {
+            "title": "Is Bestseller",
+            "type": "boolean"
+          },
+          "is_in_stock": {
+            "title": "Is In Stock",
+            "type": "boolean"
+          },
+          "is_new_arrival": {
+            "title": "Is New Arrival",
+            "type": "boolean"
+          },
+          "lengths": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Lengths",
+            "type": "array"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "original_price": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Original Price"
+          },
+          "price": {
+            "description": "Price at default_length, in whole naira",
+            "title": "Price",
+            "type": "integer"
+          },
+          "rating": {
+            "title": "Rating",
+            "type": "number"
+          },
+          "review_count": {
+            "title": "Review Count",
+            "type": "integer"
+          },
+          "sku": {
+            "title": "Sku",
+            "type": "string"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": "string"
+          },
+          "subtitle": {
+            "title": "Subtitle",
+            "type": "string"
+          },
+          "texture": {
+            "title": "Texture",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "name",
+          "subtitle",
+          "category",
+          "texture",
+          "sku",
+          "price",
+          "original_price",
+          "rating",
+          "review_count",
+          "image",
+          "badge",
+          "is_bestseller",
+          "is_new_arrival",
+          "is_in_stock",
+          "lengths",
+          "default_length"
+        ],
+        "title": "ProductSummaryOut",
+        "type": "object"
+      },
+      "QuoteIn": {
+        "properties": {
+          "fulfillment_method": {
+            "default": "courier_express",
+            "enum": [
+              "courier_express",
+              "studio_pickup"
+            ],
+            "title": "Fulfillment Method",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteItemIn"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Items",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "QuoteIn",
+        "type": "object"
+      },
+      "QuoteItemIn": {
+        "properties": {
+          "product_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Product Id",
+            "type": "string"
+          },
+          "quantity": {
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Quantity",
+            "type": "integer"
+          },
+          "seen_unit_price": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Unit price the client last displayed. Only used to flag price changes; never charged.",
+            "title": "Seen Unit Price"
+          },
+          "selected_length": {
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Selected Length",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "product_id",
+          "selected_length",
+          "quantity"
+        ],
+        "title": "QuoteItemIn",
+        "type": "object"
+      },
+      "QuoteLineOut": {
+        "properties": {
+          "image": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Image"
+          },
+          "line_total": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Line Total"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "previous_unit_price": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Unit Price"
+          },
+          "price_changed": {
+            "title": "Price Changed",
+            "type": "boolean"
+          },
+          "product_id": {
+            "title": "Product Id",
+            "type": "string"
+          },
+          "quantity": {
+            "title": "Quantity",
+            "type": "integer"
+          },
+          "selected_length": {
+            "title": "Selected Length",
+            "type": "integer"
+          },
+          "sku": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sku"
+          },
+          "status": {
+            "description": "ok | unavailable (unknown or out of stock) | invalid_length",
+            "enum": [
+              "ok",
+              "unavailable",
+              "invalid_length"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "unit_price": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit Price"
+          }
+        },
+        "required": [
+          "product_id",
+          "selected_length",
+          "quantity",
+          "status",
+          "name",
+          "sku",
+          "image",
+          "unit_price",
+          "line_total",
+          "price_changed",
+          "previous_unit_price"
+        ],
+        "title": "QuoteLineOut",
+        "type": "object"
+      },
+      "QuoteOut": {
+        "properties": {
+          "currency": {
+            "const": "NGN",
+            "default": "NGN",
+            "title": "Currency",
+            "type": "string"
+          },
+          "delivery_fee": {
+            "title": "Delivery Fee",
+            "type": "integer"
+          },
+          "fulfillment_method": {
+            "enum": [
+              "courier_express",
+              "studio_pickup"
+            ],
+            "title": "Fulfillment Method",
+            "type": "string"
+          },
+          "has_issues": {
+            "description": "True if any line is unavailable or changed price",
+            "title": "Has Issues",
+            "type": "boolean"
+          },
+          "lines": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineOut"
+            },
+            "title": "Lines",
+            "type": "array"
+          },
+          "subtotal": {
+            "description": "Sum of lines with status ok",
+            "title": "Subtotal",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "fulfillment_method",
+          "lines",
+          "subtotal",
+          "delivery_fee",
+          "total",
+          "has_issues"
+        ],
+        "title": "QuoteOut",
         "type": "object"
       },
       "ReadyOut": {
@@ -54,6 +853,76 @@
           "environment"
         ],
         "title": "ReadyOut",
+        "type": "object"
+      },
+      "SearchOut": {
+        "properties": {
+          "categories": {
+            "description": "Categories whose name matches the query",
+            "items": {
+              "$ref": "#/components/schemas/CategoryOut"
+            },
+            "title": "Categories",
+            "type": "array"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ProductSummaryOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "items",
+          "total",
+          "categories"
+        ],
+        "title": "SearchOut",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
         "type": "object"
       }
     }
@@ -116,6 +985,451 @@
         "summary": "Readyz",
         "tags": [
           "health"
+        ]
+      }
+    },
+    "/v1/catalog/categories": {
+      "get": {
+        "operationId": "list_categories_v1_catalog_categories_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoriesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Categories",
+        "tags": [
+          "catalog"
+        ]
+      }
+    },
+    "/v1/catalog/products": {
+      "get": {
+        "operationId": "list_products_v1_catalog_products_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "bundles",
+                    "wigs",
+                    "frontals",
+                    "care"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Category"
+            }
+          },
+          {
+            "in": "query",
+            "name": "texture",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 60,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Texture"
+            }
+          },
+          {
+            "description": "Exact length in inches",
+            "in": "query",
+            "name": "length",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Exact length in inches",
+              "title": "Length"
+            }
+          },
+          {
+            "description": "Storefront buckets: 16 = 14-18in, 20 = 20-24, 26 = 26-30, 32 = 32+",
+            "in": "query",
+            "name": "length_range",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "16",
+                    "20",
+                    "26",
+                    "32"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Storefront buckets: 16 = 14-18in, 20 = 20-24, 26 = 26-30, 32 = 32+",
+              "title": "Length Range"
+            }
+          },
+          {
+            "in": "query",
+            "name": "min_price",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Min Price"
+            }
+          },
+          {
+            "in": "query",
+            "name": "max_price",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Max Price"
+            }
+          },
+          {
+            "in": "query",
+            "name": "in_stock",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "In Stock"
+            }
+          },
+          {
+            "description": "`newest` matches the storefront: reverse product-id order",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "default": "featured",
+              "description": "`newest` matches the storefront: reverse product-id order",
+              "enum": [
+                "featured",
+                "price_asc",
+                "price_desc",
+                "newest",
+                "rating"
+              ],
+              "title": "Sort",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Cursor"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Products",
+        "tags": [
+          "catalog"
+        ]
+      }
+    },
+    "/v1/catalog/products/{slug}": {
+      "get": {
+        "operationId": "get_product_v1_catalog_products__slug__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "maxLength": 120,
+              "minLength": 1,
+              "title": "Slug",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Product",
+        "tags": [
+          "catalog"
+        ]
+      }
+    },
+    "/v1/catalog/products/{slug}/related": {
+      "get": {
+        "description": "\"Complete the Look\": recommended pairing, then same category, then same texture.",
+        "operationId": "related_products_v1_catalog_products__slug__related_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "maxLength": 120,
+              "minLength": 1,
+              "title": "Slug",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 4,
+              "maximum": 8,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ProductSummaryOut"
+                  },
+                  "title": "Response Related Products V1 Catalog Products  Slug  Related Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Related Products",
+        "tags": [
+          "catalog"
+        ]
+      }
+    },
+    "/v1/catalog/search": {
+      "get": {
+        "description": "Storefront search: name, description, subtitle, texture, origin, SKU and specs.",
+        "operationId": "search_v1_catalog_search_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "minLength": 1,
+              "title": "Q",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Search",
+        "tags": [
+          "catalog"
+        ]
+      }
+    },
+    "/v1/pricing/quote": {
+      "post": {
+        "description": "Prices the bag on the server. Public: guests see totals before signing in.",
+        "operationId": "quote_v1_pricing_quote_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Quote",
+        "tags": [
+          "pricing"
         ]
       }
     }

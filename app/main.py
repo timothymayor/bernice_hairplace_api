@@ -11,11 +11,11 @@ from typing import Any
 
 import sentry_sdk
 import structlog
-from fastapi import FastAPI
+from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 
-from app.api.v1 import health
+from app.api.v1 import catalog, health, pricing
 from app.core import metrics as _metrics  # noqa: F401 - registers business metrics
 from app.core.config import Settings, get_settings
 from app.core.container import Container
@@ -84,6 +84,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     install_error_handlers(app)
 
     app.include_router(health.router)
+    v1 = APIRouter(prefix="/v1")
+    v1.include_router(catalog.router)
+    v1.include_router(pricing.router)
+    app.include_router(v1)
 
     Instrumentator(
         excluded_handlers=["/healthz", "/readyz", "/metrics"],
