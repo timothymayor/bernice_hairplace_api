@@ -7,6 +7,7 @@
 //   app/catalog/products.json            the catalog the API serves (catalog stays in code for v1, ADR 0002)
 //   tests/fixtures/parity_pricing.json   unit price / delivery fee / total cases
 //   tests/fixtures/parity_checkout.json  checkout validation accept/reject cases
+//   tests/fixtures/parity_catalog.json   storefront filter/search/sort results
 import { register } from 'node:module';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -184,6 +185,69 @@ const oosBody = { ...base, items: [item, { productId: oos.id, selectedLength: oo
 checkout.push({ name: 'out-of-stock item', body: oosBody, out_of_stock: [oos.id], expected: await runCheckout(oosBody) });
 oos.isInStock = true;
 
+// ───────────── catalog queries ─────────────
+// The storefront's filter/sort lives inside a React component (src/views/CatalogView.tsx, the
+// `filteredProducts` useMemo), so it can't be imported. This is a verbatim copy of that logic;
+// keep it in sync. What it pins down is JS behaviour the API must match: substring search,
+// stable sorts, and `newest` = b.id.localeCompare(a.id).
+const catalogView = ({ activeCategory = 'all', searchQuery = '', minPrice = 0, maxPrice = Infinity,
+  selectedTexture = '', selectedLengthRange = '', inStockOnly = false, sortBy = 'featured' }) =>
+  PRODUCTS.filter((p) => {
+    if (activeCategory !== 'all') {
+      if (activeCategory === 'wigs' && p.category !== 'wigs') return false;
+      if (activeCategory === 'bundles' && p.category !== 'bundles') return false;
+      if (activeCategory === 'frontals' && p.category !== 'frontals' && p.category !== 'closures') return false;
+      if (activeCategory === 'care' && p.category !== 'care') return false;
+    }
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      const match =
+        p.name.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.subtitle.toLowerCase().includes(q) ||
+        p.texture.toLowerCase().includes(q) ||
+        p.origin.toLowerCase().includes(q) ||
+        p.sku.toLowerCase().includes(q) ||
+        p.fullSpecs.origin.toLowerCase().includes(q) ||
+        p.fullSpecs.texture.toLowerCase().includes(q) ||
+        p.fullSpecs.bleachGrade.toLowerCase().includes(q);
+      if (!match) return false;
+    }
+    if (p.price < minPrice || p.price > maxPrice) return false;
+    if (selectedTexture && p.texture !== selectedTexture) return false;
+    if (selectedLengthRange) {
+      if (selectedLengthRange === '16' && !p.lengths.some((l) => l >= 14 && l <= 18)) return false;
+      if (selectedLengthRange === '20' && !p.lengths.some((l) => l >= 20 && l <= 24)) return false;
+      if (selectedLengthRange === '26' && !p.lengths.some((l) => l >= 26 && l <= 30)) return false;
+      if (selectedLengthRange === '32' && !p.lengths.some((l) => l >= 32)) return false;
+    }
+    if (inStockOnly && !p.isInStock) return false;
+    return true;
+  }).sort((a, b) => {
+    if (sortBy === 'price-asc') return a.price - b.price;
+    if (sortBy === 'price-desc') return b.price - a.price;
+    if (sortBy === 'newest') return b.id.localeCompare(a.id);
+    if (sortBy === 'rating') return b.rating - a.rating;
+    return 0;
+  }).map((p) => p.id);
+
+const queries = [];
+const sorts = ['featured', 'price-asc', 'price-desc', 'newest', 'rating'];
+for (const activeCategory of ['all', 'bundles', 'wigs', 'frontals', 'care']) {
+  for (const sortBy of sorts) queries.push({ activeCategory, sortBy });
+}
+for (const searchQuery of ['bone', 'BONE straight', '  curly ', 'bhc-', 'cambodia', '12a', 'lace', 'elixir', 'zzz', '']) {
+  queries.push({ searchQuery });
+}
+for (const selectedTexture of [...new Set(PRODUCTS.map((p) => p.texture))]) queries.push({ selectedTexture });
+for (const selectedLengthRange of ['16', '20', '26', '32']) queries.push({ selectedLengthRange });
+for (const [minPrice, maxPrice] of [[0, 100000], [100000, 250000], [250000, 400000], [400000, 500000], [75000, 75000]]) {
+  queries.push({ minPrice, maxPrice });
+}
+queries.push({ activeCategory: 'bundles', searchQuery: 'straight', sortBy: 'price-desc', selectedLengthRange: '26' });
+queries.push({ activeCategory: 'wigs', selectedTexture: 'Deep Wave', sortBy: 'rating', inStockOnly: true });
+const catalogQueries = queries.map((query) => ({ query, expected_ids: catalogView(query) }));
+
 // ───────────── write ─────────────
 const write = (path, data) => {
   const full = resolve(root, path);
@@ -197,3 +261,4 @@ const catalogSha256 = createHash('sha256').update(catalogJson).digest('hex');
 write('app/catalog/products.json', PRODUCTS);
 write('tests/fixtures/parity_pricing.json', { catalog_sha256: catalogSha256, unit_prices: unitPrices, delivery_fees: deliveryFees, baskets });
 write('tests/fixtures/parity_checkout.json', { catalog_sha256: catalogSha256, cases: checkout });
+write('tests/fixtures/parity_catalog.json', { catalog_sha256: catalogSha256, queries: catalogQueries });

@@ -1,0 +1,602 @@
+{
+  "catalog_sha256": "8bc75808c370a95d6defcda60179976a409ad1dded1f8228f3cee814048b1b85",
+  "queries": [
+    {
+      "query": {
+        "activeCategory": "all",
+        "sortBy": "featured"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-hd-swiss-closure-5x5",
+        "prod-vietnamese-bone-straight",
+        "prod-burmese-curly-hd-unit",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-south-indian-deep-wave",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-burmese-hd-closure-5x5",
+        "prod-brazilian-luster-body-wave",
+        "prod-island-wet-and-wavy-glueless",
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "all",
+        "sortBy": "price-asc"
+      },
+      "expected_ids": [
+        "prod-botanical-hair-elixir",
+        "prod-hd-swiss-closure-5x5",
+        "prod-burmese-hd-closure-5x5",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-cambodian-bone-straight",
+        "prod-brazilian-luster-body-wave",
+        "prod-vietnamese-bone-straight",
+        "prod-south-indian-deep-wave",
+        "prod-island-wet-and-wavy-glueless",
+        "prod-burmese-curly-hd-unit",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "all",
+        "sortBy": "price-desc"
+      },
+      "expected_ids": [
+        "prod-atelier-bone-straight-full-lace",
+        "prod-burmese-curly-hd-unit",
+        "prod-island-wet-and-wavy-glueless",
+        "prod-south-indian-deep-wave",
+        "prod-vietnamese-bone-straight",
+        "prod-brazilian-luster-body-wave",
+        "prod-cambodian-bone-straight",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-burmese-hd-closure-5x5",
+        "prod-hd-swiss-closure-5x5",
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "all",
+        "sortBy": "newest"
+      },
+      "expected_ids": [
+        "prod-vietnamese-bone-straight",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-south-indian-deep-wave",
+        "prod-island-wet-and-wavy-glueless",
+        "prod-hd-swiss-closure-5x5",
+        "prod-cambodian-bone-straight",
+        "prod-burmese-hd-closure-5x5",
+        "prod-burmese-curly-hd-unit",
+        "prod-brazilian-luster-body-wave",
+        "prod-botanical-hair-elixir",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "all",
+        "sortBy": "rating"
+      },
+      "expected_ids": [
+        "prod-hd-swiss-closure-5x5",
+        "prod-burmese-curly-hd-unit",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-island-wet-and-wavy-glueless",
+        "prod-botanical-hair-elixir",
+        "prod-cambodian-bone-straight",
+        "prod-vietnamese-bone-straight",
+        "prod-south-indian-deep-wave",
+        "prod-burmese-hd-closure-5x5",
+        "prod-brazilian-luster-body-wave",
+        "prod-swiss-invisible-frontal-13x4"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "bundles",
+        "sortBy": "featured"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-vietnamese-bone-straight",
+        "prod-south-indian-deep-wave",
+        "prod-brazilian-luster-body-wave"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "bundles",
+        "sortBy": "price-asc"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-brazilian-luster-body-wave",
+        "prod-vietnamese-bone-straight",
+        "prod-south-indian-deep-wave"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "bundles",
+        "sortBy": "price-desc"
+      },
+      "expected_ids": [
+        "prod-south-indian-deep-wave",
+        "prod-vietnamese-bone-straight",
+        "prod-brazilian-luster-body-wave",
+        "prod-cambodian-bone-straight"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "bundles",
+        "sortBy": "newest"
+      },
+      "expected_ids": [
+        "prod-vietnamese-bone-straight",
+        "prod-south-indian-deep-wave",
+        "prod-cambodian-bone-straight",
+        "prod-brazilian-luster-body-wave"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "bundles",
+        "sortBy": "rating"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-vietnamese-bone-straight",
+        "prod-south-indian-deep-wave",
+        "prod-brazilian-luster-body-wave"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "wigs",
+        "sortBy": "featured"
+      },
+      "expected_ids": [
+        "prod-burmese-curly-hd-unit",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-island-wet-and-wavy-glueless"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "wigs",
+        "sortBy": "price-asc"
+      },
+      "expected_ids": [
+        "prod-island-wet-and-wavy-glueless",
+        "prod-burmese-curly-hd-unit",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "wigs",
+        "sortBy": "price-desc"
+      },
+      "expected_ids": [
+        "prod-atelier-bone-straight-full-lace",
+        "prod-burmese-curly-hd-unit",
+        "prod-island-wet-and-wavy-glueless"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "wigs",
+        "sortBy": "newest"
+      },
+      "expected_ids": [
+        "prod-island-wet-and-wavy-glueless",
+        "prod-burmese-curly-hd-unit",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "wigs",
+        "sortBy": "rating"
+      },
+      "expected_ids": [
+        "prod-burmese-curly-hd-unit",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-island-wet-and-wavy-glueless"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "frontals",
+        "sortBy": "featured"
+      },
+      "expected_ids": [
+        "prod-hd-swiss-closure-5x5",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-burmese-hd-closure-5x5"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "frontals",
+        "sortBy": "price-asc"
+      },
+      "expected_ids": [
+        "prod-hd-swiss-closure-5x5",
+        "prod-burmese-hd-closure-5x5",
+        "prod-swiss-invisible-frontal-13x4"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "frontals",
+        "sortBy": "price-desc"
+      },
+      "expected_ids": [
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-burmese-hd-closure-5x5",
+        "prod-hd-swiss-closure-5x5"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "frontals",
+        "sortBy": "newest"
+      },
+      "expected_ids": [
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-hd-swiss-closure-5x5",
+        "prod-burmese-hd-closure-5x5"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "frontals",
+        "sortBy": "rating"
+      },
+      "expected_ids": [
+        "prod-hd-swiss-closure-5x5",
+        "prod-burmese-hd-closure-5x5",
+        "prod-swiss-invisible-frontal-13x4"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "care",
+        "sortBy": "featured"
+      },
+      "expected_ids": [
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "care",
+        "sortBy": "price-asc"
+      },
+      "expected_ids": [
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "care",
+        "sortBy": "price-desc"
+      },
+      "expected_ids": [
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "care",
+        "sortBy": "newest"
+      },
+      "expected_ids": [
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "care",
+        "sortBy": "rating"
+      },
+      "expected_ids": [
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "bone"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-hd-swiss-closure-5x5",
+        "prod-vietnamese-bone-straight",
+        "prod-south-indian-deep-wave",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "BONE straight"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-hd-swiss-closure-5x5",
+        "prod-vietnamese-bone-straight",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "  curly "
+      },
+      "expected_ids": [
+        "prod-burmese-curly-hd-unit",
+        "prod-burmese-hd-closure-5x5"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "bhc-"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-hd-swiss-closure-5x5",
+        "prod-vietnamese-bone-straight",
+        "prod-burmese-curly-hd-unit",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-south-indian-deep-wave",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-burmese-hd-closure-5x5",
+        "prod-brazilian-luster-body-wave",
+        "prod-island-wet-and-wavy-glueless",
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "cambodia"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "12a"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-vietnamese-bone-straight",
+        "prod-brazilian-luster-body-wave"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "lace"
+      },
+      "expected_ids": [
+        "prod-hd-swiss-closure-5x5",
+        "prod-burmese-curly-hd-unit",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-burmese-hd-closure-5x5",
+        "prod-island-wet-and-wavy-glueless",
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "elixir"
+      },
+      "expected_ids": [
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "searchQuery": "zzz"
+      },
+      "expected_ids": []
+    },
+    {
+      "query": {
+        "searchQuery": ""
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-hd-swiss-closure-5x5",
+        "prod-vietnamese-bone-straight",
+        "prod-burmese-curly-hd-unit",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-south-indian-deep-wave",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-burmese-hd-closure-5x5",
+        "prod-brazilian-luster-body-wave",
+        "prod-island-wet-and-wavy-glueless",
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "selectedTexture": "Bone Straight"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-hd-swiss-closure-5x5",
+        "prod-vietnamese-bone-straight",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "selectedTexture": "Burmese Curly"
+      },
+      "expected_ids": [
+        "prod-burmese-curly-hd-unit",
+        "prod-burmese-hd-closure-5x5"
+      ]
+    },
+    {
+      "query": {
+        "selectedTexture": "Body Wave"
+      },
+      "expected_ids": [
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-brazilian-luster-body-wave"
+      ]
+    },
+    {
+      "query": {
+        "selectedTexture": "Deep Wave"
+      },
+      "expected_ids": [
+        "prod-south-indian-deep-wave",
+        "prod-island-wet-and-wavy-glueless"
+      ]
+    },
+    {
+      "query": {
+        "selectedTexture": "Natural Wavy"
+      },
+      "expected_ids": [
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "selectedLengthRange": "16"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-hd-swiss-closure-5x5",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-burmese-hd-closure-5x5",
+        "prod-brazilian-luster-body-wave",
+        "prod-island-wet-and-wavy-glueless"
+      ]
+    },
+    {
+      "query": {
+        "selectedLengthRange": "20"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-hd-swiss-closure-5x5",
+        "prod-vietnamese-bone-straight",
+        "prod-burmese-curly-hd-unit",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-south-indian-deep-wave",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-brazilian-luster-body-wave",
+        "prod-island-wet-and-wavy-glueless"
+      ]
+    },
+    {
+      "query": {
+        "selectedLengthRange": "26"
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-vietnamese-bone-straight",
+        "prod-burmese-curly-hd-unit",
+        "prod-south-indian-deep-wave",
+        "prod-atelier-bone-straight-full-lace",
+        "prod-brazilian-luster-body-wave"
+      ]
+    },
+    {
+      "query": {
+        "selectedLengthRange": "32"
+      },
+      "expected_ids": [
+        "prod-atelier-bone-straight-full-lace",
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "minPrice": 0,
+        "maxPrice": 100000
+      },
+      "expected_ids": [
+        "prod-hd-swiss-closure-5x5",
+        "prod-burmese-hd-closure-5x5",
+        "prod-botanical-hair-elixir"
+      ]
+    },
+    {
+      "query": {
+        "minPrice": 100000,
+        "maxPrice": 250000
+      },
+      "expected_ids": [
+        "prod-cambodian-bone-straight",
+        "prod-swiss-invisible-frontal-13x4",
+        "prod-brazilian-luster-body-wave"
+      ]
+    },
+    {
+      "query": {
+        "minPrice": 250000,
+        "maxPrice": 400000
+      },
+      "expected_ids": [
+        "prod-vietnamese-bone-straight",
+        "prod-south-indian-deep-wave",
+        "prod-island-wet-and-wavy-glueless"
+      ]
+    },
+    {
+      "query": {
+        "minPrice": 400000,
+        "maxPrice": 500000
+      },
+      "expected_ids": [
+        "prod-burmese-curly-hd-unit",
+        "prod-atelier-bone-straight-full-lace"
+      ]
+    },
+    {
+      "query": {
+        "minPrice": 75000,
+        "maxPrice": 75000
+      },
+      "expected_ids": [
+        "prod-hd-swiss-closure-5x5"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "bundles",
+        "searchQuery": "straight",
+        "sortBy": "price-desc",
+        "selectedLengthRange": "26"
+      },
+      "expected_ids": [
+        "prod-vietnamese-bone-straight",
+        "prod-cambodian-bone-straight"
+      ]
+    },
+    {
+      "query": {
+        "activeCategory": "wigs",
+        "selectedTexture": "Deep Wave",
+        "sortBy": "rating",
+        "inStockOnly": true
+      },
+      "expected_ids": [
+        "prod-island-wet-and-wavy-glueless"
+      ]
+    }
+  ]
+}

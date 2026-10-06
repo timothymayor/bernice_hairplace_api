@@ -47,23 +47,20 @@ jobs:
           docker run --rm -v "$PWD:/w" -w /w tufin/oasdiff:stable \
             breaking base-openapi.json openapi.json --fail-on ERR
 
-  migrations-sync:
-    name: Migrations match the web repo
+  web-sync:
+    name: In sync with the web repo
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Check out the web repo
-        id: web
         env:
+          # Only needed if the web repo is made private.
           TOKEN: ${{ secrets.WEB_REPO_TOKEN }}
         run: |
-          if [ -z "$TOKEN" ]; then
-            echo "::warning::WEB_REPO_TOKEN not set; skipping migration sync check"; exit 0
-          fi
-          git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/timothymayor/bernice_hairplace_web.git" web
-          echo "cloned=true" >> "$GITHUB_OUTPUT"
-      - name: Files present in both repos must be identical (ADR 0001)
-        if: steps.web.outputs.cloned == 'true'
+          auth=""
+          if [ -n "$TOKEN" ]; then auth="x-access-token:${TOKEN}@"; fi
+          git clone --depth 1 "https://${auth}github.com/timothymayor/bernice_hairplace_web.git" web
+      - name: Migrations present in both repos are identical (ADR 0001)
         run: |
           status=0
           for f in supabase/migrations/*.sql; do
@@ -73,6 +70,16 @@ jobs:
             fi
           done
           exit $status
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Catalog and parity fixtures match the web repo's code (ADR 0002)
+        run: |
+          WEB_REPO=web node scripts/export_ts_fixtures.mjs
+          if ! git diff --exit-code -- app/catalog tests/fixtures; then
+            echo "::error::The web repo's catalog or pricing changed. Run \`make parity\` and commit."
+            exit 1
+          fi
 
   smoke:
     name: Image build, scan and readiness
