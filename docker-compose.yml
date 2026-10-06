@@ -1,0 +1,44 @@
+# Local stack: api + worker + redis. Postgres comes from `supabase start` on the host
+# (or the staging project), configured through .env.
+x-app: &app
+  build: .
+  env_file: .env
+  environment:
+    REDIS_URL: redis://redis:6379/0
+    # Reach the host's Supabase CLI stack from inside the containers.
+    DATABASE_URL: ${COMPOSE_DATABASE_URL:-postgresql+asyncpg://postgres:postgres@host.docker.internal:54322/postgres}
+    SUPABASE_URL: ${COMPOSE_SUPABASE_URL:-http://host.docker.internal:54321}
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+  read_only: true
+  tmpfs:
+    - /tmp
+  depends_on:
+    redis:
+      condition: service_healthy
+
+services:
+  api:
+    <<: *app
+    ports:
+      - "8000:8000"
+
+  worker:
+    <<: *app
+    command: ["arq", "app.workers.settings.WorkerSettings"]
+    healthcheck:
+      test: ["CMD", "arq", "--check", "app.workers.settings.WorkerSettings"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10

@@ -1,0 +1,453 @@
+[
+  {
+    "id": "prod-cambodian-bone-straight",
+    "name": "Raw Cambodian Bone Straight Bundles",
+    "slug": "raw-cambodian-bone-straight",
+    "subtitle": "Single Donor Silk Steam • 100% Unprocessed",
+    "category": "bundles",
+    "texture": "Bone Straight",
+    "origin": "Rural Cambodia (Phnom Penh Temple Harvest)",
+    "price": 185000,
+    "originalPrice": 205000,
+    "rating": 4.9,
+    "reviewCount": 42,
+    "sku": "BHC-CAM-20BS",
+    "description": "Harvested from single donors in rural Cambodia, our raw bone straight hair possesses unmatched natural fluidity, heavy full ends, and a glass-like reflective sheen without chemical acid bathing. Flat-iron pressed with intact cuticles that bleach safely to #613 Platinum Blonde.",
+    "fullSpecs": {
+      "origin": "Rural Cambodia (Single-donor cut ponytail)",
+      "texture": "Raw Silky Bone Straight (Flat iron pressed, no chemical steaming)",
+      "weight": "100g ± 3g per bundle (300g per 3-bundle set)",
+      "weft": "Micro-stitch double machine reinforced (Zero shedding guarantee)",
+      "lifespan": "3 to 5+ years with botanical hydration regimen",
+      "bleachGrade": "Grade 12A Pure Raw Melanin • Lifts to pure 613 platinum"
+    },
+    "lengths": [
+      18,
+      20,
+      22,
+      26,
+      30
+    ],
+    "defaultLength": 20,
+    "images": {
+      "main": "/images/img-01-57435c102b.jpg",
+      "luster": "/images/img-06-560cca4215.jpg",
+      "weft": "/images/img-07-76ae842271.jpg",
+      "cuticle": "/images/img-08-ca7d2839ca.jpg",
+      "styled": "/images/img-01-57435c102b.jpg"
+    },
+    "badge": "Single-Donor Certified",
+    "secondaryBadge": "High Editorial Luster",
+    "isBestseller": true,
+    "isInStock": true,
+    "inStockLocation": "Victoria Island Studio",
+    "donorShade": "Natural Raw Dark (#1B)",
+    "recommendedPairing": {
+      "name": "Matching 5×5 HD Swiss Lace Closure",
+      "specs": "20\" • Ultra-Thin Transparent Swiss HD",
+      "price": 75000,
+      "image": "/images/img-09-019b1d912c.jpg"
+    }
+  },
+  {
+    "id": "prod-hd-swiss-closure-5x5",
+    "name": "5×5 HD Swiss Lace Closure",
+    "slug": "5x5-hd-swiss-lace-closure",
+    "subtitle": "Invisible Ultra-Melt Mesh • Pre-plucked Hairline",
+    "category": "frontals",
+    "texture": "Bone Straight",
+    "origin": "Swiss Real Film Mesh Craft",
+    "price": 75000,
+    "rating": 5,
+    "reviewCount": 38,
+    "sku": "BHC-LCE-55HD",
+    "description": "Crafted with real 0.08mm Swiss HD film lace, offering an undetectable scalp melt across every melanin complexion. Featuring single bleached knots, immaculate pre-plucked transition, and free parting flexibility.",
+    "fullSpecs": {
+      "origin": "Swiss HD Ultra-Thin Film Lace Mesh",
+      "texture": "Matching Raw Straight Texture",
+      "weight": "45g",
+      "weft": "Single Knot Ventilated Hand-Tied Matrix",
+      "lifespan": "2 to 3 years with gentle care",
+      "bleachGrade": "Pre-bleached micro knots • Zero brassy tint"
+    },
+    "lengths": [
+      16,
+      18,
+      20
+    ],
+    "defaultLength": 16,
+    "images": {
+      "main": "/images/img-09-019b1d912c.jpg",
+      "luster": "/images/img-03-12c2e616ad.jpg",
+      "weft": "/images/img-10-e139c20d30.jpg",
+      "cuticle": "/images/img-11-a50e92deb5.jpg",
+      "styled": "/images/img-12-9ac26c2b17.jpg"
+    },
+    "badge": "Invisible Ultra-Melt",
+    "isBestseller": true,
+    "isInStock": true,
+    "inStockLocation": "Immediate Dispatch",
+    "donorShade": "Transparent Swiss HD"
+  },
+  {
+    "id": "prod-vietnamese-bone-straight",
+    "name": "Raw Vietnamese Bone Straight Bundles",
+    "slug": "raw-vietnamese-bone-straight",
+    "subtitle": "Single Donor • Hanoi Origin • Double Drawn",
+    "category": "bundles",
+    "texture": "Bone Straight",
+    "origin": "Vietnam Mountain Harvest",
+    "price": 285000,
+    "rating": 4.9,
+    "reviewCount": 31,
+    "sku": "BHC-VT-26BS",
+    "description": "Collected from mountain donors in northern Vietnam. Ultra silky glass finish, zero tangles, thickest double drawn cuticles that stay pin-straight even in humid Lagos evenings.",
+    "fullSpecs": {
+      "origin": "Hanoi Highland Single Donor",
+      "texture": "Razor Sharp Bone Straight",
+      "weight": "300g (3 Full Bundles Pack)",
+      "weft": "Reinforced Double Machine Weft",
+      "lifespan": "5+ years guarantee",
+      "bleachGrade": "Grade 12A • Virgin Cuticle Aligned"
+    },
+    "lengths": [
+      22,
+      24,
+      26,
+      28,
+      30
+    ],
+    "defaultLength": 26,
+    "images": {
+      "main": "/images/img-08-ca7d2839ca.jpg",
+      "luster": "/images/img-13-3a00d841b6.jpg",
+      "weft": "/images/img-04-4c4efb7f62.jpg",
+      "cuticle": "/images/img-06-560cca4215.jpg",
+      "styled": "/images/img-01-57435c102b.jpg"
+    },
+    "badge": "Bestseller",
+    "secondaryBadge": "Double Drawn",
+    "isBestseller": true,
+    "isInStock": true,
+    "inStockLocation": "Victoria Island Studio",
+    "donorShade": "Natural Raw Dark (#1B)"
+  },
+  {
+    "id": "prod-burmese-curly-hd-unit",
+    "name": "Burmese Raw Curly HD Lace Unit",
+    "slug": "burmese-raw-curly-hd-lace-unit",
+    "subtitle": "Handcrafted Unit • 250% Density • Melted Knots",
+    "category": "wigs",
+    "texture": "Burmese Curly",
+    "origin": "Burma Virgin Donor",
+    "price": 420000,
+    "rating": 5,
+    "reviewCount": 27,
+    "sku": "BHC-WIG-24BC",
+    "description": "Luxurious volume, organic spiral bounce, and custom pre-plucked 13×6 Swiss HD lace. Hand-ventilated by Victoria Island master artisans to provide a seamless natural hairline.",
+    "fullSpecs": {
+      "origin": "Single Donor Burma Virgin Temple Hair",
+      "texture": "Natural Hydrated Spiral Ringlets",
+      "weight": "340g (250% Density Unit)",
+      "weft": "Bespoke Cap Construction with Elastic Security Band",
+      "lifespan": "4+ years of defined curls",
+      "bleachGrade": "Intact Cuticle • Fully Colorable"
+    },
+    "lengths": [
+      20,
+      22,
+      24,
+      28
+    ],
+    "defaultLength": 24,
+    "images": {
+      "main": "/images/img-14-5db7fb3a7f.jpg",
+      "luster": "/images/img-15-87e35e4d0f.jpg",
+      "weft": "/images/img-05-1df9f34dec.jpg",
+      "cuticle": "/images/img-16-b8d05c66e5.jpg",
+      "styled": "/images/img-14-5db7fb3a7f.jpg"
+    },
+    "badge": "13×6 HD Film Lace",
+    "secondaryBadge": "Pre-Plucked",
+    "isBestseller": true,
+    "isInStock": true,
+    "inStockLocation": "Ready to Ship",
+    "donorShade": "Natural 1B Espresso"
+  },
+  {
+    "id": "prod-swiss-invisible-frontal-13x4",
+    "name": "Swiss Invisible HD Lace Frontal 13×4",
+    "slug": "swiss-invisible-hd-lace-frontal-13x4",
+    "subtitle": "Swiss Craft • Raw Indian Donor • Ear-to-Ear",
+    "category": "frontals",
+    "texture": "Body Wave",
+    "origin": "Raw Indian Donor",
+    "price": 135000,
+    "rating": 4.8,
+    "reviewCount": 19,
+    "sku": "BHC-FRN-134HD",
+    "description": "Ear-to-ear 13×4 luxury Swiss frontal featuring microscopic ventilated single-bleached knots. Melts seamlessly under HD salon lights and tropical daylight.",
+    "fullSpecs": {
+      "origin": "Raw Indian Temple Hair + Swiss Film Lace",
+      "texture": "Natural Luster Body Wave",
+      "weight": "80g",
+      "weft": "13×4 Ear-to-Ear Free Part Mesh",
+      "lifespan": "2 to 3 years",
+      "bleachGrade": "Pre-bleached single knots"
+    },
+    "lengths": [
+      18,
+      20,
+      22
+    ],
+    "defaultLength": 20,
+    "images": {
+      "main": "/images/img-17-3dba73455a.jpg",
+      "luster": "/images/img-12-9ac26c2b17.jpg",
+      "weft": "/images/img-09-019b1d912c.jpg",
+      "cuticle": "/images/img-03-12c2e616ad.jpg",
+      "styled": "/images/img-17-3dba73455a.jpg"
+    },
+    "badge": "Ultra Skin Melt",
+    "isInStock": true,
+    "inStockLocation": "Lace Customization Studio",
+    "donorShade": "Transparent Melt"
+  },
+  {
+    "id": "prod-south-indian-deep-wave",
+    "name": "South Indian Raw Deep Wave",
+    "slug": "south-indian-raw-deep-wave",
+    "subtitle": "Temple Hair • Intact Cuticles • Natural Luster",
+    "category": "bundles",
+    "texture": "Deep Wave",
+    "origin": "Tirupati Temple Harvest",
+    "price": 360000,
+    "rating": 4.9,
+    "reviewCount": 22,
+    "sku": "BHC-IND-30DW",
+    "description": "Unprocessed authentic temple hair harvested directly from south Indian shrines. Rich S-waves with natural luster and bouncy weight from weft to tailbone.",
+    "fullSpecs": {
+      "origin": "South Indian Temple Single Donor",
+      "texture": "Authentic Deep Wave Luster",
+      "weight": "300g (3-Bundle Set)",
+      "weft": "Tight Double Stitched Wefts",
+      "lifespan": "5+ years durability",
+      "bleachGrade": "100% Raw Virgin Intact Cuticle"
+    },
+    "lengths": [
+      24,
+      26,
+      28,
+      30
+    ],
+    "defaultLength": 30,
+    "images": {
+      "main": "/images/img-18-b862dbc466.jpg",
+      "luster": "/images/img-05-1df9f34dec.jpg",
+      "weft": "/images/img-18-b862dbc466.jpg",
+      "cuticle": "/images/img-19-be1c05db55.jpg",
+      "styled": "/images/img-18-b862dbc466.jpg"
+    },
+    "badge": "Limited Stock",
+    "isInStock": true,
+    "inStockLocation": "Victoria Island Studio",
+    "donorShade": "Natural 1B Espresso"
+  },
+  {
+    "id": "prod-atelier-bone-straight-full-lace",
+    "name": "Atelier Bone Straight Full Lace Wig",
+    "slug": "atelier-bone-straight-full-lace-wig",
+    "subtitle": "Full Lace • 360 Parting • Razor Sharp Cut",
+    "category": "wigs",
+    "texture": "Bone Straight",
+    "origin": "Couture Hand-Knotted Full Lace",
+    "price": 490000,
+    "rating": 5,
+    "reviewCount": 16,
+    "sku": "BHC-WIG-28FL",
+    "description": "The crown jewel of our Victoria Island atelier. Full 360 degree lace ventilation allows high ponytails, half-up buns, and deep parting. Razor-sharp blunt finish with 300g super fullness.",
+    "fullSpecs": {
+      "origin": "Single Donor Raw Cambodian Hair + Full Swiss Cap",
+      "texture": "Obsidian Bone Straight High Gloss",
+      "weight": "300g Super Thick Density",
+      "weft": "100% Hand-tied Full Lace Cap",
+      "lifespan": "5+ years heirloom quality",
+      "bleachGrade": "Bleaches to #613 with intact elasticity"
+    },
+    "lengths": [
+      24,
+      28,
+      32
+    ],
+    "defaultLength": 28,
+    "images": {
+      "main": "/images/img-20-d3f252a509.jpg",
+      "luster": "/images/img-01-57435c102b.jpg",
+      "weft": "/images/img-16-b8d05c66e5.jpg",
+      "cuticle": "/images/img-21-30982e50d2.jpg",
+      "styled": "/images/img-20-d3f252a509.jpg"
+    },
+    "badge": "New Arrival",
+    "secondaryBadge": "300g Super Thick",
+    "isInStock": true,
+    "inStockLocation": "Custom Fit Studio",
+    "donorShade": "Obsidian Jet Black (#1)"
+  },
+  {
+    "id": "prod-burmese-hd-closure-5x5",
+    "name": "Burmese HD Lace Closure 5×5",
+    "slug": "burmese-hd-lace-closure-5x5",
+    "subtitle": "Clean Parting • Organic Ringlet Texture • Real HD",
+    "category": "frontals",
+    "texture": "Burmese Curly",
+    "origin": "Burma Virgin Donor",
+    "price": 95000,
+    "rating": 4.9,
+    "reviewCount": 14,
+    "sku": "BHC-LCE-BC55",
+    "description": "Rich natural ringlet curl closure piece with meticulously laid baby hairs and clean parting grid. Matches perfectly with our Burmese raw curly bundles.",
+    "fullSpecs": {
+      "origin": "Burma Single Donor + HD Swiss Lace",
+      "texture": "Organic Ringlet Curl",
+      "weight": "50g",
+      "weft": "Hand-tied 5×5 Mesh",
+      "lifespan": "2 to 3 years",
+      "bleachGrade": "Pre-bleached single knots"
+    },
+    "lengths": [
+      14,
+      16,
+      18
+    ],
+    "defaultLength": 16,
+    "images": {
+      "main": "/images/img-11-a50e92deb5.jpg",
+      "luster": "/images/img-11-a50e92deb5.jpg",
+      "weft": "/images/img-05-1df9f34dec.jpg",
+      "cuticle": "/images/img-12-9ac26c2b17.jpg",
+      "styled": "/images/img-15-87e35e4d0f.jpg"
+    },
+    "badge": "5×5 HD Silk Closure",
+    "isInStock": true,
+    "inStockLocation": "In Stock VI",
+    "donorShade": "Natural 1B Espresso"
+  },
+  {
+    "id": "prod-brazilian-luster-body-wave",
+    "name": "Raw Brazilian Luster Body Wave",
+    "slug": "raw-brazilian-luster-body-wave",
+    "subtitle": "Natural 1B • Heat Resistant • S-Pattern",
+    "category": "bundles",
+    "texture": "Body Wave",
+    "origin": "Raw Brazilian Virgin Donor",
+    "price": 245000,
+    "rating": 4.9,
+    "reviewCount": 29,
+    "sku": "BHC-BRZ-22BW",
+    "description": "Cascading S-curl waves that retain voluminous body and bounce through hot styling tools and beach vacations. Silky smooth to the ends with zero synthetic mixing.",
+    "fullSpecs": {
+      "origin": "Single Donor Raw Brazilian Harvest",
+      "texture": "Organic Body Wave with Deep Luster",
+      "weight": "300g (3-Bundle Set)",
+      "weft": "Double Stitch Machine Wefted",
+      "lifespan": "4+ years of radiant wear",
+      "bleachGrade": "Grade 12A • Virgin Cuticles Aligned"
+    },
+    "lengths": [
+      18,
+      20,
+      22,
+      24,
+      26
+    ],
+    "defaultLength": 22,
+    "images": {
+      "main": "/images/img-22-562ad69136.jpg",
+      "luster": "/images/img-22-562ad69136.jpg",
+      "weft": "/images/img-07-76ae842271.jpg",
+      "cuticle": "/images/img-23-8f681b20be.jpg",
+      "styled": "/images/img-22-562ad69136.jpg"
+    },
+    "badge": "Signature",
+    "isInStock": true,
+    "inStockLocation": "Bundle Pack (3)",
+    "donorShade": "Natural 1B"
+  },
+  {
+    "id": "prod-island-wet-and-wavy-glueless",
+    "name": "Island Wet & Wavy Glueless Unit",
+    "slug": "island-wet-and-wavy-glueless-unit",
+    "subtitle": "Glueless Elastic Band • 13×4 HD • Defined Hydration Curls",
+    "category": "wigs",
+    "texture": "Deep Wave",
+    "origin": "Raw Vietnamese Ocean Wave",
+    "price": 380000,
+    "rating": 5,
+    "reviewCount": 35,
+    "sku": "BHC-WIG-20WW",
+    "description": "The ultimate effortless ready-to-wear luxury unit. Features an adjustable piano-elastic glueless band, pre-cut HD lace edge, and luscious wet-and-wavy curls that spring to life with a mist of water and argan oil.",
+    "fullSpecs": {
+      "origin": "Single Donor Raw Vietnamese Virgin Hair",
+      "texture": "Wet & Wavy Defined Curls",
+      "weight": "280g (200% Density)",
+      "weft": "Glueless 3D Molded Cap with Velvet Ear Tabs",
+      "lifespan": "4+ years",
+      "bleachGrade": "Intact Cuticle • Pre-Plucked Hairline"
+    },
+    "lengths": [
+      18,
+      20,
+      22,
+      24
+    ],
+    "defaultLength": 20,
+    "images": {
+      "main": "/images/img-19-be1c05db55.jpg",
+      "luster": "/images/img-19-be1c05db55.jpg",
+      "weft": "/images/img-16-b8d05c66e5.jpg",
+      "cuticle": "/images/img-18-b862dbc466.jpg",
+      "styled": "/images/img-19-be1c05db55.jpg"
+    },
+    "badge": "Island Favorite",
+    "isInStock": true,
+    "inStockLocation": "Immediate Dispatch",
+    "donorShade": "Natural 1B"
+  },
+  {
+    "id": "prod-botanical-hair-elixir",
+    "name": "Pure Botanical Hair Elixir & Silk Serum",
+    "slug": "pure-botanical-hair-elixir",
+    "subtitle": "Preservation • Hydration Mists • Organic Argan",
+    "category": "care",
+    "texture": "Natural Wavy",
+    "origin": "Cold-Pressed Botanical Harvest",
+    "price": 35000,
+    "rating": 5,
+    "reviewCount": 48,
+    "sku": "BHC-CARE-OIL100",
+    "description": "Formulated exclusively for raw virgin extensions and custom HD lace caps. Weightless silicone-free formula infuses cold-pressed Moroccan argan, sweet almond, and camellia seed oils to seal cuticles and prevent humidity frizz.",
+    "fullSpecs": {
+      "origin": "Organic Cold-Pressed Botanical Extracts",
+      "texture": "Silky Non-Greasy Serum",
+      "weight": "100ml Glass Dropper Bottle",
+      "weft": "Universal Safe on HD Lace & Human Hair Wefts",
+      "lifespan": "24 Months Shelf Life",
+      "bleachGrade": "Sulfate-Free • Paraben-Free • 100% Vegan"
+    },
+    "lengths": [
+      100
+    ],
+    "defaultLength": 100,
+    "images": {
+      "main": "/images/img-24-a5287e6eaa.jpg",
+      "luster": "/images/img-24-a5287e6eaa.jpg",
+      "weft": "/images/img-24-a5287e6eaa.jpg",
+      "cuticle": "/images/img-24-a5287e6eaa.jpg",
+      "styled": "/images/img-24-a5287e6eaa.jpg"
+    },
+    "badge": "Preservation Care",
+    "isInStock": true,
+    "inStockLocation": "Lagos Studio Stock",
+    "donorShade": "Golden Amber Pure Elixir"
+  }
+]

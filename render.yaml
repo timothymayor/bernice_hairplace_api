@@ -1,0 +1,84 @@
+# Render Blueprint: free-tier STAGING (ADR 0003). Production runs on Contabo, not here.
+# First-time setup: docs/runbook.md → "Render: first-time setup (staging)".
+#
+# Frankfurt is the closest Render region to the Supabase project (eu-west-1, Ireland).
+services:
+  - type: web
+    name: bernice-hairplace-api-staging
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    # Liveness only: /readyz would take the service down during a Supabase blip.
+    healthCheckPath: /healthz
+    # Deploy only after the GitHub Actions checks on the commit pass.
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: APP_ENV
+        value: staging
+      - key: LOG_LEVEL
+        value: INFO
+      # gunicorn binds :8000 (Dockerfile); tell Render's router.
+      - key: PORT
+        value: "8000"
+      # 512 MB / 0.1 CPU: one gunicorn worker, with the arq worker in the same process.
+      - key: WEB_CONCURRENCY
+        value: "1"
+      - key: RUN_WORKER_IN_PROCESS
+        value: "true"
+      - key: DB_POOL_SIZE
+        value: "3"
+      - key: MAILGUN_REGION
+        value: us
+      - key: PAYMENT_PENDING_TTL_MINUTES
+        value: "60"
+      - key: RECONCILE_INTERVAL_MINUTES
+        value: "5"
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: bernice-hairplace-redis-staging
+          property: connectionString
+      - key: METRICS_TOKEN
+        generateValue: true
+      # Secrets: entered in the Render dashboard when the Blueprint is first applied. Leave the
+      # optional ones blank (blank = unset).
+      - key: DATABASE_URL # Supabase transaction pooler, port 6543, postgresql+asyncpg://
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_JWT_SECRET # optional: legacy HS256 projects only
+        sync: false
+      - key: PAYSTACK_SECRET_KEY # sk_test_ only; the app refuses a live key outside production
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: CORS_ORIGIN_REGEX # optional: e.g. Vercel preview URLs
+        sync: false
+      - key: SITE_URL
+        sync: false
+      - key: PAYMENT_CALLBACK_URL
+        sync: false
+      - key: MAILGUN_API_KEY
+        sync: false
+      - key: MAILGUN_DOMAIN
+        sync: false
+      - key: MAILGUN_FROM_EMAIL
+        sync: false
+      - key: STORE_NOTIFICATION_EMAIL # optional
+        sync: false
+      - key: SENTRY_DSN # optional
+        sync: false
+
+  - type: keyvalue
+    name: bernice-hairplace-redis-staging
+    plan: free
+    region: frankfurt
+    # Empty allow list = reachable only from services in this Render workspace.
+    ipAllowList: []
+    # The arq job queue lives here and must never be evicted; cache keys all carry TTLs.
+    maxmemoryPolicy: noeviction
