@@ -1,0 +1,2048 @@
+{
+  "catalog_sha256": "8bc75808c370a95d6defcda60179976a409ad1dded1f8228f3cee814048b1b85",
+  "cases": [
+    {
+      "name": "valid courier order",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "valid pickup order without street",
+      "body": {
+        "fulfillmentMethod": "studio_pickup",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "studio_pickup",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "unknown fulfilment defaults to courier",
+      "body": {
+        "fulfillmentMethod": "drone",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "missing fulfilment defaults to courier",
+      "body": {
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "missing first name",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Please provide your full name"
+      }
+    },
+    {
+      "name": "whitespace last name",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "   ",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Please provide your full name"
+      }
+    },
+    {
+      "name": "missing address object",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Please provide your full name"
+      }
+    },
+    {
+      "name": "invalid email",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "A valid email address is required"
+      }
+    },
+    {
+      "name": "email with spaces",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada @example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "A valid email address is required"
+      }
+    },
+    {
+      "name": "email padded with spaces is trimmed",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "  ada@example.com  ",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "phone too short",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "12-34-5",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "A valid phone number is required"
+      }
+    },
+    {
+      "name": "phone exactly 7 digits",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "(123) 4567",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "(123) 4567",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "courier without street",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": " ",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Please provide a delivery address"
+      }
+    },
+    {
+      "name": "state and country are forced",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1",
+          "state": "Abuja",
+          "country": "Ghana"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "long fields are truncated",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+          "district": "Lekki Phase 1",
+          "deliveryNotes": "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "numeric phone value is stringified",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": 8012345678,
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "8012345678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 165000,
+        "delivery_fee": 0,
+        "total": 165000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "empty bag",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": []
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Your bag is empty"
+      }
+    },
+    {
+      "name": "items not a list",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": "nope"
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Your bag is empty"
+      }
+    },
+    {
+      "name": "missing items",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        }
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Your bag is empty"
+      }
+    },
+    {
+      "name": "51 lines",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Too many items in your bag"
+      }
+    },
+    {
+      "name": "50 lines",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 8250000,
+        "delivery_fee": 0,
+        "total": 8250000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          },
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 1,
+            "unit_price": 165000,
+            "line_total": 165000
+          }
+        ]
+      }
+    },
+    {
+      "name": "unknown product",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-nope",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "An item in your bag is no longer available"
+      }
+    },
+    {
+      "name": "quantity 0",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 0
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Invalid quantity in your bag"
+      }
+    },
+    {
+      "name": "quantity 21",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 21
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Invalid quantity in your bag"
+      }
+    },
+    {
+      "name": "quantity 20",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 20
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 3300000,
+        "delivery_fee": 0,
+        "total": 3300000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 20,
+            "unit_price": 165000,
+            "line_total": 3300000
+          }
+        ]
+      }
+    },
+    {
+      "name": "fractional quantity",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1.5
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Invalid quantity in your bag"
+      }
+    },
+    {
+      "name": "quantity as numeric string",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": "2"
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 330000,
+        "delivery_fee": 0,
+        "total": 330000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 18,
+            "quantity": 2,
+            "unit_price": 165000,
+            "line_total": 330000
+          }
+        ]
+      }
+    },
+    {
+      "name": "invalid length",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 19,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Invalid length selected for Raw Cambodian Bone Straight Bundles"
+      }
+    },
+    {
+      "name": "length as numeric string",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": "20",
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 185000,
+        "delivery_fee": 0,
+        "total": 185000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 20,
+            "quantity": 1,
+            "unit_price": 185000,
+            "line_total": 185000
+          }
+        ]
+      }
+    },
+    {
+      "name": "bad quantity is reported before a later unknown product",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 0
+          },
+          {
+            "productId": "x",
+            "selectedLength": 18,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": false,
+        "error": "Invalid quantity in your bag"
+      }
+    },
+    {
+      "name": "free delivery threshold reached",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 20,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 185000,
+        "delivery_fee": 0,
+        "total": 185000,
+        "lines": [
+          {
+            "product_id": "prod-cambodian-bone-straight",
+            "selected_length": 20,
+            "quantity": 1,
+            "unit_price": 185000,
+            "line_total": 185000
+          }
+        ]
+      }
+    },
+    {
+      "name": "below free delivery threshold",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-hd-swiss-closure-5x5",
+            "selectedLength": 16,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [],
+      "expected": {
+        "ok": true,
+        "fulfillment_method": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "suiteFlat": "",
+          "district": "Lekki Phase 1",
+          "state": "Lagos State",
+          "country": "Nigeria",
+          "deliveryNotes": ""
+        },
+        "subtotal": 75000,
+        "delivery_fee": 4500,
+        "total": 79500,
+        "lines": [
+          {
+            "product_id": "prod-hd-swiss-closure-5x5",
+            "selected_length": 16,
+            "quantity": 1,
+            "unit_price": 75000,
+            "line_total": 75000
+          }
+        ]
+      }
+    },
+    {
+      "name": "out-of-stock item",
+      "body": {
+        "fulfillmentMethod": "courier_express",
+        "address": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@example.com",
+          "phone": "+234 801 234 5678",
+          "streetAddress": "12 Admiralty Way",
+          "district": "Lekki Phase 1"
+        },
+        "items": [
+          {
+            "productId": "prod-cambodian-bone-straight",
+            "selectedLength": 18,
+            "quantity": 1
+          },
+          {
+            "productId": "prod-vietnamese-bone-straight",
+            "selectedLength": 22,
+            "quantity": 1
+          }
+        ]
+      },
+      "out_of_stock": [
+        "prod-vietnamese-bone-straight"
+      ],
+      "expected": {
+        "ok": false,
+        "error": "An item in your bag is no longer available"
+      }
+    }
+  ]
+}
