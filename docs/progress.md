@@ -15,7 +15,7 @@ Last updated: 2026-10-06
 | 4 | Checkout, Paystack, state machine, webhook, email, reconciliation | Not started | |
 | 5 | Orders, admin, account deletion | Not started | Blocked on ADRs 0005 and 0006 for the migrations |
 | 6 | Hardening and load test | Not started | |
-| 7 | Staging integration (web and mobile) | Not started | Staging: Render free tier, Frankfurt (`render.yaml`, ADR 0003); waiting on the owner's Render sign-up (runbook). Production: Contabo (Phase 8) |
+| 7 | Staging integration (web and mobile) | Not started | One repo, two environments: `main` → staging on Render (after CI passes); `v*` tags → production on Contabo (Phase 8). Waiting on the owner's Render setup (runbook) |
 | 8 | Production cutover | Not started | |
 
 ## Open questions for the owner
@@ -27,7 +27,8 @@ Last updated: 2026-10-06
    - approval of the migration that makes `orders.user_id` nullable
    - a rule for undelivered orders
 4. **Admin order management** (ADR 0006). Should we build an API endpoint, or keep Supabase Studio as the only tool? And should customers get an email when their order ships?
-5. Is there a separate **staging Supabase project**, and who owns the Paystack and Mailgun accounts (BP §12)?
+5. **Staging database.** Decided 2026-10-06: staging uses the current Supabase project (eu-west-1) for now. **Revisit before the Phase 3 PR merges**: from Phase 3, staging writes carts and profiles, and from Phase 4 test orders. A second free Supabase project for staging is recommended.
+6. Who owns the Paystack and Mailgun accounts (BP §12)?
 
 ## How the UX spec maps onto the API
 
