@@ -48,13 +48,17 @@ class JwksCache:
         self._redis = redis
         self._keys: dict[str, jwt.PyJWK] = {}
         self._loaded_at = 0.0
-        self._last_forced = 0.0
+        # None = never refetched. Not 0.0: monotonic() counts from boot, which can be < 60s ago.
+        self._last_forced: float | None = None
 
     async def get(self, kid: str | None) -> jwt.PyJWK:
         if not self._keys or time.monotonic() - self._loaded_at > JWKS_TTL_SECONDS:
             await self._load(force=False)
-        since_forced = time.monotonic() - self._last_forced
-        if kid not in self._keys and since_forced > KID_MISS_REFETCH_INTERVAL:
+        throttled = (
+            self._last_forced is not None
+            and time.monotonic() - self._last_forced < KID_MISS_REFETCH_INTERVAL
+        )
+        if kid not in self._keys and not throttled:
             self._last_forced = time.monotonic()
             await self._load(force=True)
         key = self._keys.get(kid or "")

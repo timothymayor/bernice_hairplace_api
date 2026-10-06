@@ -197,3 +197,24 @@ async def test_admin_requires_app_metadata_role(client: httpx.AsyncClient) -> No
     assert (await client.get("/_test/admin", headers=auth)).status_code == 403
     r = await client.get("/_test/admin", headers={"Authorization": f"Bearer {admin}"})
     assert r.status_code == 200
+
+
+async def test_kid_miss_refetches_on_a_freshly_booted_machine(
+    settings: Settings, jwks: JwksCache, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    # time.monotonic() counts from machine boot. A CI runner or a new VM can be < 60s old; the
+    # first kid-miss refetch must not depend on that (this flaked CI on a fresh runner).
+    started = time.perf_counter()
+    monkeypatch.setattr(
+        "app.core.security.time.monotonic", lambda: 30.0 + time.perf_counter() - started
+    )
+    old, new = KeyPair("kid-old"), KeyPair("kid-new")
+    with respx.mock() as mock:
+        route = mock.get(JWKS_URL)
+        route.side_effect = [
+            httpx.Response(200, json={"keys": [old.jwk()]}),
+            httpx.Response(200, json={"keys": [old.jwk(), new.jwk()]}),
+        ]
+        await verify_token(sign(old), settings, jwks)
+        await verify_token(sign(new), settings, jwks)
+        assert route.call_count == 2

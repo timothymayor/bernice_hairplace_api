@@ -97,12 +97,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
+      - name: Today's date (refreshes the OS security-update layer daily)
+        id: date
+        run: echo "today=$(date -u +%F)" >> "$GITHUB_OUTPUT"
       - name: Build
         uses: docker/build-push-action@v6
         with:
           context: .
           load: true
           tags: ${{ env.IMAGE }}:${{ github.sha }}
+          build-args: SECURITY_REFRESH=${{ steps.date.outputs.today }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Trivy scan
@@ -111,7 +115,37 @@ jobs:
           image-ref: ${{ env.IMAGE }}:${{ github.sha }}
           severity: CRITICAL,HIGH
           ignore-unfixed: true
-          exit-code: "1"
+          format: json
+          output: trivy.json
+          exit-code: "0"
+      - name: Fail on fixable HIGH/CRITICAL vulnerabilities
+        # Findings become annotations (visible in the PR and the checks API) and a job summary.
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          report = json.load(open("trivy.json"))
+          vulns = [
+              (r.get("Target", ""), v)
+              for r in report.get("Results") or []
+              for v in r.get("Vulnerabilities") or []
+          ]
+          lines = ["| Severity | Package | Installed | Fixed | ID | Target |", "|---|---|---|---|---|---|"]
+          for target, v in vulns:
+              lines.append(
+                  f"| {v['Severity']} | {v['PkgName']} | {v.get('InstalledVersion', '')} "
+                  f"| {v.get('FixedVersion', '')} | {v['VulnerabilityID']} | {target} |"
+              )
+          for target, v in vulns[:10]:
+              print(
+                  f"::error title=Trivy {v['VulnerabilityID']}::{v['Severity']} {v['PkgName']} "
+                  f"{v.get('InstalledVersion', '')} -> {v.get('FixedVersion', '')} ({target})"
+              )
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
+              summary.write(f"## Trivy: {len(vulns)} fixable HIGH/CRITICAL\n\n")
+              if vulns:
+                  summary.write("\n".join(lines) + "\n")
+          sys.exit(1 if vulns else 0)
+          PY
       - name: Run the API (read-only root fs, as in production)
         run: |
           docker run -d --name api --network host --read-only --tmpfs /tmp \
